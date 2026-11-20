@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* evita esticar demais em telas grandes */
+  margin: 0 auto;    /* centraliza horizontalmente */
+  padding: 0 16px;   /* respiro nas laterais em telas pequenas */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+
+  height: 100px;
+  
+}
