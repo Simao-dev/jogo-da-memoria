@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <title>Jogo da Memória</title>
 </head>
@@ -13,22 +16,24 @@
             <form class="insertNames">
 
                 <div class="home_img">
-                    <img src="#" alt="Imagem do inicio">
+                    
+                    <img src="assets/img/Holly l.png" alt="Imagem do inicio">
+                    <img src="assets/img/star.png" alt="Imagem de estrela">
                     <h1>Jogo da Memória</h1>
+                    <img src="assets/img/holly.png" alt="Logo do jogo da memória">
+                    <img src="assets/img/star.png" alt="Imagem de estrela">
                 </div>
 
-                <input type="text" placeholder="Jogador 01">
-                <input type="text" placeholder="Jogador 02">
-                <button class="start_game">
-                    <a href="game/game.html">Jogar</a>
-                </button>
+                <div class="input_names">
+                    <input type="text" placeholder="Jogador 01" id="jogador1">
+                    <input type="text" placeholder="Jogador 02" id="jogador2">
+                    <button class="start_game" onclick="startGame()">Jogar</button>
+                </div>
             </form>
 
         </main>
-        
-        <footer>
 
-        </footer>
+        <script src="assets/script.js"></script>
     </div>
 </body>
 </html>
