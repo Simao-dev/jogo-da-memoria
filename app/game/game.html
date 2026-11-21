@@ -1,52 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link css rel="stylesheet" href="../assets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link css rel="stylesheet" href="../assets/style.css" />
     <title>Vamos jogar!</title>
-</head>
-<body>
-    <div class="container">
+  </head>
+  <body>
+    <header class="header_Game">
+      <div insertNames>
+        <div class="home_img">
+          <img src="../assets/img/Holly l.png" alt="Imagem do inicio" />
+          <img src="../assets/img/star.png" alt="Imagem de estrela" />
+          <h1>Jogo da Memória</h1>
+          <img src="../assets/img/holly.png" alt="Logo do jogo da memória" />
+          <img src="../assets/img/star.png" alt="Imagem de estrela" />
+        </div>
+      </div>
+      <div class="jogaror-vez">
+        <img src="../assets/img/text_transform.png" alt="" />
+        <p>Vez do jogador <span style="font-weight: bold">jogador</span> 1</p>
+        <div class="circulo"></div>
+      </div>
+      <div class="placar">
+        <div class="player-card ativo">
 
-        <div class="header_Game">
-                <div insertNames>
-                    <div class="home_img">
-                        <img src="../assets/img/Holly l.png" alt="Imagem do inicio">
-                        <img src="../assets/img/star.png" alt="Imagem de estrela">
-                        <h1>Jogo da Memória</h1>
-                        <img src="../assets/img/holly.png" alt="Logo do jogo da memória">
-                        <img src="../assets/img/star.png" alt="Imagem de estrela">
-                    </div>
+            <div class="info">
+                <div class="avatar">
+                    <img src="../assets/img/player1.png" alt="">
                 </div>
-            <span class="flag_jogador"></span>
-            <div class="placar">
-                <span class="jogador">Jogador 01</span>
-                <span class="jogador">Jogador 02</span>
+                <div class="informacoes">
+                    <small>JOGANDO AGORA</small>
+                    <strong>Jogador 1</strong>
+                </div>
+            </div>
+            <div class="pontos">
+                <p>2</p>
+                <span>PONTOS</span>
             </div>
         </div>
 
-        <div class="grid"></div>
-
-        <div class="mensagem_ganhador" id="ganhador">
-        
-            <div class="header_parabens">
-                <h1 class="parabens">Parabéns</h1>
-            </div>
-
-            <div class="conteudo_principal">
-                <p class="mensagem">Parabéns! Você ganhou está partida.
-                Que tal jogar novamente e testar suas habilidades?</p>
-                <div class="botoes">
-                    <button class="jogarNovamente">Jogar Novamente</button>
-                    <a href="../index.html">Trocar jogadores</a>
+        <!-- Card Inativo -->
+        <div class="player-card">
+            <div class="info">
+                <div class="avatar">
+                    <img src="../assets/img/player2.png" alt="">
                 </div>
-                
+                <div class="informacoes">
+                    <small>AGUARDANDO A VEZ</small>
+                    <strong>Jogador 2</strong>
+                </div>
             </div>
-            
-    </div>
+            <div class="pontos">
+                <p>1</p>
+                <span>PONTO</span>
+            </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="grid"></div>
+      <div class="mensagem_ganhador" id="ganhador">
+        <div class="header_parabens">
+          <h1 class="parabens">Parabéns</h1>
+        </div>
+
+        <div class="conteudo_principal">
+          <p class="mensagem">
+            Parabéns! Você ganhou está partida. Que tal jogar novamente e testar
+            suas habilidades?
+          </p>
+          <div class="botoes">
+            <button class="jogarNovamente">Jogar Novamente</button>
+            <a href="../index.html">Trocar jogadores</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="../assets/script.js"></script>
-</body>
+  </body>
 </html>
