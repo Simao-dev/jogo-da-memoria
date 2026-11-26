@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="app/assets/style.css" />
     <title>Vamos jogar!</title>
   </head>
   <body>
     <header class="header_Game">
       <div>
         <div class="home_img">
-          <img src="../assets/img/Holly l.png" alt="Imagem do inicio" />
-          <img src="../assets/img/Star.png" alt="Imagem de estrela" />
+          <img src="app/assets/img/Holly l.png" alt="Imagem do inicio" />
+          <img src="app/assets/img/Star.png" alt="Imagem de estrela" />
           <h1>Jogo da Memória</h1>
-          <img src="../assets/img/holly.png" alt="Logo do jogo da memória" />
-          <img src="../assets/img/Star.png" alt="Imagem de estrela" />
+          <img src="app/assets/img/holly.png" alt="Logo do jogo da memória" />
+          <img src="app/assets/img/Star.png" alt="Imagem de estrela" />
         </div>
       </div>
 
       <div class="jogaror-vez">
-        <img src="../assets/img/text_transform.png" alt="" />
+        <img src="app/assets/img/text_transform.png" alt="" />
         <p id="indicador-vez">Vez do Jogador 1</p>
         <div class="circulo"></div>
       </div>
@@ -28,7 +28,7 @@
         <div class="player-card ativo" id="card-j1">
           <div class="info">
             <div class="avatar">
-              <img src="../assets/img/player1.png" alt="Avatar Jogador 1" />
+              <img src="app/assets/img/player1.png" alt="Avatar Jogador 1" />
             </div>
             <div class="informacoes">
               <small>JOGANDO AGORA</small>
@@ -44,7 +44,7 @@
         <div class="player-card" id="card-j2">
           <div class="info">
             <div class="avatar">
-              <img src="../assets/img/player2.png" alt="Avatar Jogador 2" />
+              <img src="app/assets/img/player2.png" alt="Avatar Jogador 2" />
             </div>
             <div class="informacoes">
               <small>AGUARDANDO A VEZ</small>
@@ -63,22 +63,22 @@
       <div class="grid" id="tabuleiro"></div>
 
       <div class="mensagem_ganhador" id="modal-fim">
-        <div class="header_parabens">
-          <h1 class="parabens" id="mensagem-vencedor">Parabéns!</h1>
-        </div>
-
-        <div class="conteudo_principal">
-          <p class="mensagem">
-            Que tal jogar novamente e testar suas habilidades?
-          </p>
-          <div class="botoes">
-            <button class="jogarNovamente" onclick="iniciarJogo()">Jogar Novamente</button>
-            <a href="../index.html">Trocar jogadores</a>
+        <div class="caixa-popup">
+          <div class="header_parabens">
+            <h1 class="parabens" id="mensagem-vencedor">Parabéns!</h1>
+          </div>
+          <div class="conteudo_principal">
+            <p class="mensagem">
+              Que tal jogar novamente e testar suas habilidades?
+            </p>
+            <div class="botoes">
+              <button class="jogarNovamente" onclick="iniciarJogo()">Jogar Novamente</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="../assets/script.js"></script>
+    <script src="app/assets/script.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-//Lista com os nomes exatos dos arquivos em app/assets/img/
+//array com os nomes exatos dos arquivos em app/assets/img/
 
 const cartas = [
   'carta_bell.png', 
@@ -12,7 +12,7 @@ const cartas = [
 ];
 
 
-//estado da partida
+//estado da partida Variaveis globais
 let jogadorAtual = 1;
 let pontosJogador1 = 0;
 let pontosJogador2 = 0;
@@ -24,7 +24,7 @@ let travarTabuleiro = false;
 
 //cria cards e monta tabuleiro
 function iniciarJogo() {
-
+    //zera os pontos e reseta o jogo ao estado inicial
     jogadorAtual = 1;
     pontosJogador1 = 0;
     pontosJogador2 = 0;
@@ -40,35 +40,45 @@ function iniciarJogo() {
         modalFim.style.display = 'none';
    }
 
-   // Junta a lista duas vezes para formar os 8 pares (16 cartas)
+   // Junta a lista duas vezes para formar o baralho. cartas.length = 8 que e
+   // a quantidade de cartas do array "cartas" se  i for < 8 i++ 
    var baralho = [];
    for (var i = 0; i < cartas.length; i++) {
+        //a cada volta do laço salva 2 cartas em baralho[] a original e uma copia
        baralho.push(cartas[i]);
        baralho.push(cartas[i]);
    }
 
-   //embaralha as cartas
+   //embaralha as cartas de trás pra frente
+   //baralho.length = 16 ( var i = baralho.length - 1) então ele começa a contagem do 15
    for(var i = baralho.length - 1; i > 0; i--){
+        //e sorteado uma posição aleatoria j, entre 0 e o valor atual de i
+        //Math.random() gera um numero quebrado aleatorio entre 0 e 0.999.
+        //* (i + 1)) multiplica esse numero pelo tamanho do trecho que ainda não foi embaralhado se i = 15 multiplica por 16
+        // Math.floor tira as casas decimais e arrendonda pra baixo
         var j = Math.floor(Math.random() * (i + 1));
-        var temp = baralho[i];
-        baralho[i] = baralho[j];
-        baralho[j] = temp;
+        var temp = baralho[i]; 
+        baralho[i] = baralho[j]; 
+        baralho[j] = temp; 
+
    }
 
    //pega minha div vazia com id(tabuleiro) e limpar qualquer carta anterior
    var tabuleiro = document.getElementById('tabuleiro');
    tabuleiro.innerHTML = '';
 
-   //Como o baralho já foi duplicado e embaralhado, esse laço se repete 16 vezes (uma para cada posição do array)
+   //Como o baralho já foi duplicado e embaralhado, esse laço se repete 16 vezes 
+   // (uma para cada posição do array)
    for(var i = 0; i < baralho.length; i++){
-    //cria uma div nova e coloca a classe "carta" e adciona e ala um etiqueta invisivel "data-imagem" com o nome da figura sorteada para aquela posição.
+    //cria uma div nova e coloca a classe "carta" e adciona e ala um etiqueta invisivel 
+    // "data-imagem" com o nome da figura sorteada para aquela posição.
     var carta = document.createElement('div');
     carta.className = 'carta';
     carta.setAttribute('data-imagem', baralho[i]);
 
     //Cria a tag <img> já apontando para a imagem da carta fechada (carta_virada_para_baixo.png).
     var imagem = document.createElement('img');
-    imagem.src = '../assets/img/carta_virada_para_baixo.png';
+    imagem.src = 'app/assets/img/carta_virada_para_baixo.png';
     imagem.alt = 'Carta virada para baixo';
 
     //Coloca a <img> dentro da <div class="carta">, liga o evento de clique (clicarNaCarta) e insere essa carta pronta dentro do #tabuleiro na tela.
@@ -84,10 +94,11 @@ function clickNaCarta() {
     if(travarTabuleiro === true){
         return;
     }
+    // Verifica se a carta que você clicou agora é a mesma que você já tinha clicado antes
     if(this === primeiraCarta){
         return;
     }
-
+    //Olha para essa carta clicada e vê se ela já tem a classe CSS encontrada.
     if(this.classList.contains('encontrada')){
         return;
     }
@@ -95,7 +106,7 @@ function clickNaCarta() {
     // Mostra a imagem da carta clicada
     var nomeImagem = this.getAttribute('data-imagem');
     var img = this.querySelector('img');
-    img.src = '../assets/img/' + nomeImagem;
+    img.src = 'app/assets/img/' + nomeImagem;
     this.classList.add('virada');
 
     // Verifica se é a primeira ou a segunda carta da jogada
@@ -140,9 +151,10 @@ function verificarPar(){
 
 //Função que desvira as cartas erradas e passa a vez 
 function desvirarCartas(){
+    //verifica se primeiraCarta && segundaCarta e diferente de null
     if(primeiraCarta !== null && segundaCarta !== null){
-        primeiraCarta.querySelector('img').src = '../assets/img/carta_virada_para_baixo.png';
-        segundaCarta.querySelector('img').src = '../assets/img/carta_virada_para_baixo.png'
+        primeiraCarta.querySelector('img').src = 'app/assets/img/carta_virada_para_baixo.png';
+        segundaCarta.querySelector('img').src = 'app/assets/img/carta_virada_para_baixo.png'
 
         primeiraCarta.classList.remove('virada');
         segundaCarta.classList.remove('virada');
@@ -163,7 +175,6 @@ function desvirarCartas(){
 }
 
 // função que atualiza placar e indicador de vez
-
 function atualizarTela(){
     document.getElementById('pontos-j1').innerText = pontosJogador1;
     document.getElementById('pontos-j2').innerText = pontosJogador2;
@@ -186,11 +197,11 @@ function finalizarPartida(){
     var textoResultado = '';
 
     if(pontosJogador1  > pontosJogador2 ){
-        textoResultado = 'Jogador 1 venceu! (' + pontosJogador1 + 'X' + pontosJogador2 + ')';
+        textoResultado = 'Jogador 1 venceu! ' + pontosJogador1 + ' x ' + pontosJogador2;
     }else if(pontosJogador2 > pontosJogador1){
-        textoResultado = 'Jogador 2 venceu! (' + pontosJogador1 + 'X' + pontosJogador2 + ')';
+        textoResultado = 'Jogador 2 venceu! ' + pontosJogador1 + ' x ' + pontosJogador2;
     }else{
-        textoResultado = 'Empate! (' + pontosJogador1 + 'X' + pontosJogador2 + ')';
+        textoResultado = 'Empate! ' + pontosJogador1 + ' x ' + pontosJogador2;
     }
 
     document.getElementById('mensagem-vencedor').innerText = textoResultado;
